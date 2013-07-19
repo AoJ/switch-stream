@@ -1,28 +1,34 @@
-function switchStream (streams) {
+var through = require('through');
+
+module.exports = function (current) {
     var stream = through(write, end);
-    var index = 0;
+    var streams = [];
     
-    streams.forEach(function (s, ix) {
-        s.pipe(through(write, end));
+    stream.set = function (s) {
+        stream.current = s;
+        if (streams.indexOf(s) >= 0) return;
         
+        streams.push(s);
+        s.pipe(through(write, end));
+         
         function write (buf) {
-            if (index === ix) stream.queue(buf);
+            if (stream.current === s) stream.queue(buf);
         }
         
         function end () {
-            if (index === ix) stream.queue(null);
+            if (stream.current === s) stream.queue(null);
         }
-    });
+    };
     
-    stream.change = function (ix) { index = ix };
+    if (current) stream.set(current);
     
     return stream;
     
     function write (buf) {
-        streams[index].write(buf);
+        if (stream.current) stream.current.write(buf);
     }
     
     function end () {
-        streams[index].end();
+        if (stream.current) stream.current.end();
     }
 }
