@@ -1,0 +1,32 @@
+{
+  "name": "switch-stream",
+  "version": "0.0.0",
+  "description": "swap out a stream in-place",
+  "main": "index.js",
+  "dependencies": {
+    "through": "~2.3.4"
+  },
+  "devDependencies": {
+    "split": "~0.2.6",
+    "tape": "~1.0.4"
+  },
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/substack/switch-stream.git"
+  },
+  "homepage": "https://github.com/substack/switch-stream",
+  "keywords": [
+    "stream",
+    "swap",
+    "switch"
+  ],
+  "author": {
+    "name": "James Halliday",
+    "email": "mail@substack.net",
+    "url": "http://substack.net"
+  },
+  "license": "MIT"
+}
