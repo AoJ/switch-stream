@@ -13,6 +13,13 @@
   "scripts": {
     "test": "tape test/*.js"
   },
+  "testling": [
+    "ie/8..latest",
+    "firefox/10", "firefox/latest",
+    "chrome/15", "chrome/latest",
+    "opera/latest",
+    "safari/latest"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/substack/switch-stream.git"

@@ -2,6 +2,10 @@
 
 swap out a stream in-place
 
+[![browser support](https://ci.testling.com/substack/switch-stream.png)](https://ci.testling.com/substack/switch-stream)
+
+[![build status](https://secure.travis-ci.org/substack/switch-stream.png)](http://travis-ci.org/substack/switch-stream)
+
 # example
 
 For the first three lines, this stream uppercases its input with the `prelude`
